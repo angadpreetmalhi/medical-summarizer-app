@@ -7,12 +7,14 @@ import seaborn as sns
 import spacy.cli
 from transformers import pipeline
 import spacy
+import spacy
+
 try:
     nlp = spacy.load("en_core_web_sm")
-except OSError:
-    import spacy.cli
-    spacy.cli.download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
+except:
+    st.error("The spaCy model 'en_core_web_sm' is not available. Please ensure it's installed via requirements.txt.")
+    nlp = None
+
 
 # Load summarizer
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
