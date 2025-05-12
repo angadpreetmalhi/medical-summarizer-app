@@ -11,9 +11,9 @@ transformers==4.36.2
 torch==2.1.2
 nltk==3.8.1
 
-# spaCy + Thinc versions known to work well
+# Known-compatible spaCy and Thinc versions
 spacy==3.5.4
 thinc==8.1.9
 
-# spaCy model
+# Pretrained English model
 https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
