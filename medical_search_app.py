@@ -12,9 +12,11 @@ summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 try:
     nlp = spacy.load("en_core_web_sm")
-except:
-    st.error("The spaCy model 'en_core_web_sm' is not available. Please ensure it's installed via requirements.txt.")
-    nlp = None
+except OSError:
+    import spacy.cli
+    spacy.cli.download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
+
 
 # Sidebar upload
 st.sidebar.header("📤 Upload Your Own Report")
