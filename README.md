@@ -4,7 +4,7 @@ This Streamlit app allows users to search, filter, and explore medical transcrip
 
 ## 🚀 Live App
 
-👉 [Click here to open the app](medical-summarizer-app-ba74iver98dvzyunfhpy9b.streamlit.app)
+👉 [Click here to open the app](https://medical-summarizer-app-ba74iver98dvzyunfhpy9b.streamlit.app/)
 
 *(Replace with your actual Streamlit link)*
 
