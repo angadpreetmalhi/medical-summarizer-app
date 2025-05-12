@@ -6,10 +6,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import spacy.cli
 from transformers import pipeline
-
-# Download and load spaCy model
-spacy.cli.download("en_core_web_sm")
-nlp = spacy.load("en_core_web_sm")
+import spacy
+try:
+    nlp = spacy.load("en_core_web_sm")
+except OSError:
+    import spacy.cli
+    spacy.cli.download("en_core_web_sm")
+    nlp = spacy.load("en_core_web_sm")
 
 # Load summarizer
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
