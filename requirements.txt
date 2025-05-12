@@ -11,12 +11,9 @@ transformers==4.36.2
 torch==2.1.2
 nltk==3.8.1
 
-# Compatible spaCy + Thinc versions
-spacy==3.7.2
-thinc==8.1.12
+# spaCy + Thinc versions known to work well
+spacy==3.5.4
+thinc==8.1.9
 
-# For Jupyter (optional)
-jupyter==1.0.0
-
-# ✅ Include the spaCy model as a pip-installable wheel
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+# spaCy model
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.5.0/en_core_web_sm-3.5.0-py3-none-any.whl
