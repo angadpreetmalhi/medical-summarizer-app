@@ -8,7 +8,7 @@ import seaborn as sns
 # Load data
 @st.cache_data
 def load_data():
-    df = pd.read_csv("data/mtsamples_with_entities.csv")
+    df = pd.read_csv("mtsamples_with_entities.csv")
     df['entities'] = df['entities'].apply(lambda x: ast.literal_eval(x) if pd.notnull(x) else [])
     return df
 
