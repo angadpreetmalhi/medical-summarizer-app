@@ -11,11 +11,8 @@ from transformers import pipeline
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 # Load spaCy model
-try:
-    nlp = spacy.load("en_core_web_sm")
-except:
-    st.error("spaCy model 'en_core_web_sm' not found. Please install it with: python -m spacy download en_core_web_sm")
-    st.stop()
+import en_core_web_sm
+nlp = en_core_web_sm.load()
 
 # Sidebar upload
 st.sidebar.header("📤 Upload Your Own Report")
