@@ -15,7 +15,8 @@ nltk==3.8.1
 spacy==3.7.2
 thinc==8.1.12
 
-# For Jupyter (optional, useful locally)
+# For Jupyter (optional)
 jupyter==1.0.0
-https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
 
+# ✅ Include the spaCy model as a pip-installable wheel
+https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
