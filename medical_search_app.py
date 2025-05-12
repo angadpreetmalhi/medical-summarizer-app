@@ -93,7 +93,7 @@ else:
             fig, ax = plt.subplots(figsize=(10, 5))
             sns.barplot(data=ents_df, x='Frequency', y='Entity', palette='crest', ax=ax)
             st.pyplot(fig)
-"""
+
 
 # Write files to disk
 with open("/mnt/data/requirements.txt", "w") as f:
