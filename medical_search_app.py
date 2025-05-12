@@ -9,6 +9,9 @@ from transformers import pipeline
 
 # Load summarizer and spaCy model
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
+
+import spacy.cli
+spacy.cli.download("en_core_web_sm")
 nlp = spacy.load("en_core_web_sm")
 
 # Sidebar upload
