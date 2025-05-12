@@ -10,13 +10,12 @@ from transformers import pipeline
 # Load summarizer and spaCy model
 summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
+# Load spaCy model
 try:
     nlp = spacy.load("en_core_web_sm")
-except OSError:
-    import spacy.cli
-    spacy.cli.download("en_core_web_sm")
-    nlp = spacy.load("en_core_web_sm")
-
+except:
+    st.error("spaCy model 'en_core_web_sm' not found. Please install it with: python -m spacy download en_core_web_sm")
+    st.stop()
 
 # Sidebar upload
 st.sidebar.header("📤 Upload Your Own Report")
@@ -48,12 +47,9 @@ if uploaded_file is not None:
 
     # Extract entities
     st.subheader("🔍 Named Entities")
-    if nlp:
-        doc = nlp(report_text)
-        entities = [ent.text for ent in doc.ents]
-        st.write(entities)
-    else:
-        st.warning("Named Entity Recognition is unavailable.")
+    doc = nlp(report_text)
+    entities = [ent.text for ent in doc.ents]
+    st.write(entities)
 
 else:
     # Search interface for dataset
@@ -95,13 +91,3 @@ else:
             fig, ax = plt.subplots(figsize=(10, 5))
             sns.barplot(data=ents_df, x='Frequency', y='Entity', palette='crest', ax=ax)
             st.pyplot(fig)
-
-
-# Write files to disk
-with open("/mnt/data/requirements.txt", "w") as f:
-    f.write(requirements_txt)
-
-with open("/mnt/data/medical_search_app.py", "w") as f:
-    f.write(medical_search_app_py)
-
-"/mnt/data/requirements.txt and /mnt/data/medical_search_app.py are ready to download and deploy."
