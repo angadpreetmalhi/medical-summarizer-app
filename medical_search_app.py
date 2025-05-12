@@ -4,13 +4,15 @@ import ast
 from collections import Counter
 import matplotlib.pyplot as plt
 import seaborn as sns
-import spacy
+import spacy.cli
 from transformers import pipeline
 
-# Load summarizer and spaCy model
-summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
-
+# Download and load spaCy model
+spacy.cli.download("en_core_web_sm")
 nlp = spacy.load("en_core_web_sm")
+
+# Load summarizer
+summarizer = pipeline("summarization", model="sshleifer/distilbart-cnn-12-6")
 
 # Sidebar upload
 st.sidebar.header("📤 Upload Your Own Report")
